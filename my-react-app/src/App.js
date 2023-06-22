@@ -37,9 +37,9 @@ function App() {
     return <div>O servidor falhou em responder, tente recarregar a página</div>;
   }
   return (
-    <div>
+    <div className='app'>
        {data ? data.map((item, index) => (
-        <div key={index}>
+        <div key={index} className='card'>
           <h2>{item.title}</h2>
           <p>{item.genre}</p>
           <img src={item.thumbnail} alt={item.title} />

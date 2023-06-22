@@ -1,3 +1,12 @@
-.body {
+
+.app {
+    display: flex;
+    gap: 100px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.card{
     background-color: grey;
 }
