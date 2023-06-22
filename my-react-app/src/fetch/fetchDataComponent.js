@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 function FetchDataComponent() {
   const [data, setData] = useState(null);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const URL = 'https://games-test-api-81e9fb0d564a.herokuapp.com/api/data/'
@@ -21,9 +21,12 @@ function FetchDataComponent() {
       return response.json();
     })
     .then(data => {
-      if (data) {
-        setData(data);
+      if (data === 'error') {
+        setData('O servidor não conseguirá responder por agora, tente voltar novamente mais tarde')
       }
+      setData(data);
+      console.log(data)
+
     })
     .catch(() => setError('O servidor não conseguirá responder por agora, tente voltar novamente mais tarde'));
   }, [])
@@ -32,7 +35,7 @@ function FetchDataComponent() {
   }
   return (
     <div>
-      {data ? JSON.stringify(data) : 'Loader...'}
+      {data ? data.map((item, index) => <li key={index}>{item.title}</li>) : 'Carregando...'}
     </div>
   );
 }
