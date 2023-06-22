@@ -1,5 +1,6 @@
-
-.app {
+.app{
+}
+.all-card {
     display: flex;
     gap: 100px;
     justify-content: space-around;
@@ -9,4 +10,11 @@
 
 .card{
     background-color: grey;
+    font-family: monospace;
+}
+
+.search{
+    display: flex;
+    justify-content: center;
+    padding: 25px 50px 25px 50px;
 }
