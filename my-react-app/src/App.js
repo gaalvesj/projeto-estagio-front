@@ -19,7 +19,6 @@ function App() {
     })
     .then(response => {
       if (codeVerify.includes(response.status)) {
-        console.log(response.status);
         setError('O servidor falhou em responder, tente recarregar a página');
         return Error;
       }
@@ -30,7 +29,6 @@ function App() {
         setData('O servidor não conseguirá responder por agora, tente voltar novamente mais tarde')
       }
       setData(data);
-      console.log(data)
 
     })
     .catch(() => setError('O servidor não conseguirá responder por agora, tente voltar novamente mais tarde'));
