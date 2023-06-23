@@ -48,9 +48,11 @@ function App() {
       <SearchBar onSearch={setSearch} onChange={genreFilter} setFilter={setFilter}/>
       {data ? filteredData.map((item, index) => (
       <div key={index} className='card'>
+        <section className='text-card'>
         <h2>{item.title}</h2>
         <p>{item.genre}</p>
-        <img src={item.thumbnail} alt={item.title} />
+        </section>
+        <img src={item.thumbnail} alt={item.title} className='image' />
       </div>
     )) : <p> Loader... </p>}
     </div>
