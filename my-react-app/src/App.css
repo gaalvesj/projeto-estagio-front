@@ -1,4 +1,6 @@
-
+#html{
+    background-color: red;
+}
 .app {
     display: flex;
     gap: 100px;
@@ -6,25 +8,24 @@
     flex-wrap: wrap;
     flex-direction: row;
     padding-top: 25px;
+
 }
 
 .card{
-    background-color: wheat;
     font-family: monospace;
     border-radius: 3px black;
-    box-shadow: 10px -8px teal;
-}
-
-.search{
-    display: flex;
-    justify-content: center;
-    padding: 25px 50px 25px 50px;
+    box-shadow: 2px -2px 2px -1px grey;
 }
 
 .img{
-    width: 400px;
+    width: 600px;
 }
 
-.search{
-    background-color: red;
+.searchBar{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
 }

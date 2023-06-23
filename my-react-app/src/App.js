@@ -1,34 +1,22 @@
 
 import './App.css';
 import React, { useEffect, useState } from 'react';
+import SearchBar from './components/SearchBar';
 
-function SearchBar({ onSearch }) {
-  const [search, setSearch] = useState('');
+// function GenreFilter({ onFilter }) {
+//   const handleFilterChange = (event) => {
+//     onFilter(event.target.value);
+//   };
 
-  const handleSearchChange = (event) => {
-    setSearch(event.target.value);
-    onSearch(event.target.value);
-  };
-
-  return (
-    <input type="text" value={search} onChange={handleSearchChange} placeholder="Buscar por título..." />
-  );
-}
-
-function GenreFilter({ onFilter }) {
-  const handleFilterChange = (event) => {
-    onFilter(event.target.value);
-  };
-
-  return (
-    <select onChange={handleFilterChange}>
-      <option value="">Todos</option>
-      <option value="MMOARPG">MMOARPG</option>
-      <option value="Shooter">Shooter</option>
-      <option value="MOBA">MOBA</option>
-    </select>
-  );
-}
+//   return (
+//     <select onChange={handleFilterChange}>
+//       <option value="">Todos</option>
+//       <option value="MMOARPG">MMOARPG</option>
+//       <option value="Shooter">Shooter</option>
+//       <option value="MOBA">MOBA</option>
+//     </select>
+//   );
+// }
 
 function App() {
   const[data, setData] = useState(null);
@@ -62,6 +50,8 @@ function App() {
     })
     .catch(() => setError('O servidor não conseguirá responder por agora, tente voltar novamente mais tarde'));
   }, [])
+
+
   if (error) {
     return <div>O servidor falhou em responder, tente recarregar a página</div>;
   }
@@ -70,16 +60,16 @@ function App() {
   const genreFilter = data ? data.filter(item => item.genre === filter): [];
   return (
     <div className='app'>
-      <GenreFilter onFilter={setFilter} />
-      <SearchBar onSearch={setSearch} onChange={genreFilter} className='  '/>
-      {filteredData.map((item, index) => (
-        <div key={index} className='card'>
-          <h2>{item.title}</h2>
-          <p>{item.genre}</p>
-          <img src={item.thumbnail} alt={item.title} />
-        </div>
-      ))}
+      <SearchBar onSearch={setSearch} onChange={genreFilter} setFilter={setFilter}/>
+      {data ? filteredData.map((item, index) => (
+      <div key={index} className='card'>
+        <h2>{item.title}</h2>
+        <p>{item.genre}</p>
+        <img src={item.thumbnail} alt={item.title} />
+      </div>
+    )) : <p> Loader... </p>}
     </div>
+    
   );
 }
 
