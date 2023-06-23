@@ -15,10 +15,26 @@ function SearchBar({ onSearch }) {
   );
 }
 
+function GenreFilter({ onFilter }) {
+  const handleFilterChange = (event) => {
+    onFilter(event.target.value);
+  };
+
+  return (
+    <select onChange={handleFilterChange}>
+      <option value="">Todos</option>
+      <option value="MMOARPG">MMOARPG</option>
+      <option value="Shooter">Shooter</option>
+      <option value="MOBA">MOBA</option>
+    </select>
+  );
+}
+
 function App() {
   const[data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [search, setSearch] = useState('');
+  const [filter, setFilter] = useState('');
 
   useEffect(() => {
     const URL = 'https://games-test-api-81e9fb0d564a.herokuapp.com/api/data/'
@@ -51,13 +67,15 @@ function App() {
   }
 
   const filteredData = data ? data.filter(item => item.title.toLowerCase().includes(search.toLowerCase())) : [];
-
+  const genreFilter = data ? data.filter(item => item.genre === filter): [];
   return (
-    <div>
-      <SearchBar onSearch={setSearch} />
+    <div className='app'>
+      <GenreFilter onFilter={setFilter} />
+      <SearchBar onSearch={setSearch} onChange={genreFilter} className='  '/>
       {filteredData.map((item, index) => (
-        <div key={index}>
+        <div key={index} className='card'>
           <h2>{item.title}</h2>
+          <p>{item.genre}</p>
           <img src={item.thumbnail} alt={item.title} />
         </div>
       ))}

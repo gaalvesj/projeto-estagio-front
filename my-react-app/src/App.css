@@ -1,20 +1,30 @@
-.app{
-}
-.all-card {
+
+.app {
     display: flex;
     gap: 100px;
     justify-content: space-around;
     flex-wrap: wrap;
     flex-direction: row;
+    padding-top: 25px;
 }
 
 .card{
-    background-color: grey;
+    background-color: wheat;
     font-family: monospace;
+    border-radius: 3px black;
+    box-shadow: 10px -8px teal;
 }
 
 .search{
     display: flex;
     justify-content: center;
     padding: 25px 50px 25px 50px;
+}
+
+.img{
+    width: 400px;
+}
+
+.search{
+    background-color: red;
 }
