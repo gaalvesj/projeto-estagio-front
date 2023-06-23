@@ -3,21 +3,6 @@ import './App.css';
 import React, { useEffect, useState } from 'react';
 import SearchBar from './components/SearchBar';
 
-// function GenreFilter({ onFilter }) {
-//   const handleFilterChange = (event) => {
-//     onFilter(event.target.value);
-//   };
-
-//   return (
-//     <select onChange={handleFilterChange}>
-//       <option value="">Todos</option>
-//       <option value="MMOARPG">MMOARPG</option>
-//       <option value="Shooter">Shooter</option>
-//       <option value="MOBA">MOBA</option>
-//     </select>
-//   );
-// }
-
 function App() {
   const[data, setData] = useState(null);
   const [error, setError] = useState(null);
