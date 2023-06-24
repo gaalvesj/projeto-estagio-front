@@ -1,3 +1,7 @@
+#body{
+    background-color: rgb(42, 40, 40);
+}
+
 .app {
     display: flex;
     gap: 100px;
@@ -5,7 +9,6 @@
     flex-wrap: wrap;
     flex-direction: row;
     padding-top: 25px;
-    background-color: rgb(42, 40, 40);
 }
 
 .card{
@@ -31,4 +34,9 @@
 
 .text-card{
     padding: 21px;
+}
+
+
+.p, h1, h2{
+    font-style: white;
 }
