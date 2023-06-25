@@ -4,10 +4,10 @@
 
 .app {
     display: flex;
-    gap: 100px;
-    justify-content: space-around;
-    flex-wrap: wrap;
     flex-direction: row;
+    flex-wrap: wrap;
+    gap: 49px;
+    justify-content: space-around;
     padding-top: 25px;
 }
 
